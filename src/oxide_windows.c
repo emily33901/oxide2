@@ -17,8 +17,8 @@
 
 typedef void *Handle;
 
-extern Handle oxide_window_handle;
-extern Handle oxide_target_handle;
+Handle oxide_window_handle;
+Handle oxide_target_handle;
 
 Handle oxide_dc;
 Handle oxide_rc;
