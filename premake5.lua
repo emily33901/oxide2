@@ -1,6 +1,3 @@
-require("premake_modules/export-compile-commands")
-require("premake_modules/cmake")
-
 workspace "oxide2"
     configurations { "Debug", "Release" }
     platforms { "x64", "x32" }
@@ -49,21 +46,3 @@ workspace "oxide2"
     filter {}
     
     require "import"
-
-    -- For moving the compile commands into the root directory of the project
-    -- so that autocomplete tools can see them (cquery...)
-    
-    -- This is messy but was the only way to get it to work consistently
-    -- across multiple platforms (circleci, windows 10, vsts...)
-    filter "system:linux"
-        prebuildcommands {
-            "{MKDIR} %{wks.location}/compile_commands/",
-            "{TOUCH} %{wks.location}/compile_commands/%{cfg.shortname}.json",
-            "{COPY} %{wks.location}/compile_commands/%{cfg.shortname}.json ../compile_commands.json"
-        }
-    filter "system:windows"
-        prebuildcommands {
-            "cmd.exe /c \"" .. "{MKDIR} %{wks.location}/compile_commands/",
-            "cmd.exe /c \""  .. "{TOUCH} %{wks.location}/compile_commands/%{cfg.shortname}.json",
-            "cmd.exe /c \""  .. "{COPY} %{wks.location}/compile_commands/%{cfg.shortname}.json ../compile_commands.json*"
-        }

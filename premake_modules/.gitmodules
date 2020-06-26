@@ -1,3 +1,0 @@
-[submodule "ghp"]
-	path = ghp
-	url = https://github.com/mversluys/premake-ghp.git
