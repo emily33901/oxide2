@@ -1,5 +1,7 @@
+#!/bin/sh
+
 echo creating projects...
 
-./premake5 "gmake"
+./premake5 "gmake2"
 
 echo finished.
