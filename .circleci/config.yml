@@ -26,8 +26,8 @@ jobs:
             cd premake
             ln -s /usr/bin/clang-6.0 /usr/bin/clang
             ln -s /usr/bin/clang++-6.0 /usr/bin/clang++
-            make config=release_x64 -j2
-            make config=release_x32 -j2
+            make config=release_x64 oxide2 -j2
+            make config=release_x32 oxide2 -j2
       - store_artifacts:
           path: ~/oxide2/lib/x64_Release/oxide2/liboxide2.a
           destination: liboxide2_x64.a
