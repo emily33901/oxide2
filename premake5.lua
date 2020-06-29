@@ -40,7 +40,7 @@ workspace "oxide2"
     filter {"configurations:Release"}
         defines { "NDEBUG" }
         optimize "Full"
-        symbols "Off"
+        -- symbols "Off"
         flags {"LinkTimeOptimization"}
         
     filter {}
