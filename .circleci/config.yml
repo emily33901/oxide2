@@ -28,5 +28,8 @@ jobs:
             ln -s /usr/bin/clang++-6.0 /usr/bin/clang++
             make -j2
       - store_artifacts:
-          path: ~/oxide2/bin/Debug/liboxide.a
-          destination: liboxide.a
+          path: ~/oxide2/lib/x64_Release/oxide2/liboxide2.a
+          destination: liboxide2_x64.a
+      - store_artifacts:
+          path: ~/oxide2/lib/x32_Release/oxide2/liboxide2.a
+          destination: liboxide2_x32.a

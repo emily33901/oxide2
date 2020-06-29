@@ -240,7 +240,7 @@ Window window_from_name_search(Display *display, Window display_root, Window cur
 }
 
 bool oxide_set_target(const char *target_name) {
-    auto root           = RootWindow(display, screen);
+    Window root         = RootWindow(display, screen);
     oxide_target_handle = window_from_name_search(display, root, root, target_name);
 
     return oxide_target_handle != 0;
@@ -258,7 +258,7 @@ Oxide_WindowSize oxide_resize() {
     Oxide_WindowSize new_size = {.width = 0, .height = 0};
     if (oxide_target_handle == 0) return new_size;
 
-    auto root = DefaultRootWindow(display);
+    Window root = DefaultRootWindow(display);
 
     XWindowAttributes window_attribs;
     XGetWindowAttributes(display, oxide_target_handle, &window_attribs);
