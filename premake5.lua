@@ -28,19 +28,18 @@ workspace "oxide2"
     filter "configurations:Debug"
         defines { "DEBUG", "_DEBUG" }
         optimize "Off"
-
-        filter {"system:windows"}
-            symbols "Full"
-        filter {"system:linux"}
-            symbols "On"
-            buildoptions "-g3" -- need this for gdb
-        filter {}
         runtime "Debug"
+
+    filter {"configurations:Debug", "system:windows"}
+        symbols "Full"
+    filter {"configurations:Debug", "system:linux"}
+        symbols "On"
+        buildoptions "-g3" -- need this for gdb
 
     filter {"configurations:Release"}
         defines { "NDEBUG" }
         optimize "Full"
-        -- symbols "Off"
+        symbols "Off"
         flags {"LinkTimeOptimization"}
         
     filter {}
